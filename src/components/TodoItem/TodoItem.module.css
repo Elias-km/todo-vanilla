@@ -1,0 +1,29 @@
+
+.item {
+  list-style: none;
+}
+
+.button {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #f3f4f6;
+}
+
+.button.selected {
+  border-color: #2563eb;
+  background: #dbeafe;
+}
+
+.button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}

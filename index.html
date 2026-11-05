@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo Vanilla</title>
+  </head>
+  <body>
+    <main id="app">
+      <h1>ToDo Vanilla</h1>
+
+      <div data-form-slot></div>
+
+      <div class="actions">
+        <button type="button" data-remove disabled>
+          Eliminar seleccionadas
+        </button>
+
+        <button type="button" data-undo disabled>
+          Deshacer
+        </button>
+
+        <button type="button" data-redo disabled>
+          Rehacer
+        </button>
+      </div>
+
+      <div data-list-slot></div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

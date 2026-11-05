@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+#app {
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 16px;
+  display: grid;
+  gap: 24px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.actions button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.actions button:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.actions button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
