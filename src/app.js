@@ -1,11 +1,12 @@
 import { createTodoStore } from './todoStore/todoStore.js';
-import { loadTodos, saveTodos } from './todoStorage/todoStorage.js';
+import { saveTodos } from './todoStorage/todoStorage.js';
+import { bootstrapTodos } from './bootstrap.js';
 
 import { createTodoForm } from './components/TodoForm/TodoForm.js';
 import { createTodoList } from './components/TodoList/TodoList.js';
 
 export function initApp(container) {
-  const store = createTodoStore(loadTodos());
+  const store = createTodoStore(bootstrapTodos());
 
   const openAddButton = container.querySelector('[data-open-add]');
   const removeButton = container.querySelector('[data-remove]');

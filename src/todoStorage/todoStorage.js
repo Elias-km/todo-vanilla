@@ -44,3 +44,12 @@ export function saveTodos(todos, storage) {
     return false;
   }
 }
+
+export function hasSavedTodos(storage) {
+  try {
+    return (storage ?? globalThis.localStorage)
+      .getItem(STORAGE_KEY) !== null;
+  } catch {
+    return false;
+  }
+}
