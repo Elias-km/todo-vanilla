@@ -1,31 +1,80 @@
+
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ToDo Vanilla</title>
+    <meta
+      name="description"
+      content="A simple Vanilla JavaScript task list with undo, redo and local storage."
+    />
+    <title>ToDo List Vanilla</title>
   </head>
   <body>
-    <main id="app">
-      <h1>ToDo Vanilla</h1>
+    <main id="app" class="app-shell">
+      <section class="card" aria-labelledby="app-title">
+        <h1 id="app-title" class="title">ToDo List Vanilla</h1>
+
+        <p class="description">
+          Organize your tasks with a simple, lightweight app.
+          Add and remove items, select multiple tasks, undo and redo
+          changes, and keep your list automatically saved in your browser.
+        </p>
+
+        <div data-list-slot></div>
+        <p class="sr-only" data-status role="status"></p>
+
+        <div class="actions">
+          <div class="actions-left">
+            <button
+              type="button"
+              class="icon-button"
+              data-undo
+              aria-label="Undo"
+              title="Undo"
+              disabled
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 11a9 9 0 1 1 2.6 6.4" />
+                <path d="M3 4v7h7" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="icon-button"
+              data-redo
+              aria-label="Redo"
+              title="Redo"
+              disabled
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 11a9 9 0 1 0-2.6 6.4" />
+                <path d="M21 4v7h-7" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="ghost-button"
+              data-remove
+              disabled
+            >
+              DELETE
+            </button>
+          </div>
+
+          <button
+            type="button"
+            class="primary-button"
+            data-open-add
+          >
+            ADD
+          </button>
+        </div>
+      </section>
 
       <div data-form-slot></div>
-
-      <div class="actions">
-        <button type="button" data-remove disabled>
-          Eliminar seleccionadas
-        </button>
-
-        <button type="button" data-undo disabled>
-          Deshacer
-        </button>
-
-        <button type="button" data-redo disabled>
-          Rehacer
-        </button>
-      </div>
-
-      <div data-list-slot></div>
     </main>
 
     <script type="module" src="/src/main.js"></script>

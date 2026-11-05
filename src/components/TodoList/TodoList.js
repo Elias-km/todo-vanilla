@@ -13,6 +13,7 @@ export function createTodoList({ onToggle, onRemove }) {
 
   list.className = styles.list;
   empty.className = styles.empty;
+  element.className = styles.container;
 
   let currentIds = [];
   let items = new Map();

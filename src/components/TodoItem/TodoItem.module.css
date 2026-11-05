@@ -4,26 +4,30 @@
 }
 
 .button {
+  display: block;
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background: white;
+  min-height: 46px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #383838;
   text-align: left;
-  font: inherit;
-  cursor: pointer;
+  font-size: 19px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
-.button:hover {
-  background: #f3f4f6;
+.button:hover:not(.selected) {
+  background: rgba(53, 71, 255, 0.08);
 }
 
 .button.selected {
-  border-color: #2563eb;
-  background: #dbeafe;
+  background: var(--primary);
+  color: #ffffff;
 }
 
 .button:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
 }

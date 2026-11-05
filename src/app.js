@@ -1,4 +1,3 @@
-
 import { createTodoStore } from './todoStore/todoStore.js';
 import { loadTodos, saveTodos } from './todoStorage/todoStorage.js';
 
@@ -8,11 +7,12 @@ import { createTodoList } from './components/TodoList/TodoList.js';
 export function initApp(container) {
   const store = createTodoStore(loadTodos());
 
+  const openAddButton = container.querySelector('[data-open-add]');
   const removeButton = container.querySelector('[data-remove]');
   const undoButton = container.querySelector('[data-undo]');
   const redoButton = container.querySelector('[data-redo]');
+  const status = container.querySelector('[data-status]');
 
-  // Ejecuta cambios y guarda las tareas.
   function commit(action) {
     const changed = action();
 
@@ -23,7 +23,6 @@ export function initApp(container) {
     return changed;
   }
 
-  // Componentes
   const form = createTodoForm({
     onAdd: (text) => commit(() => store.addTodo(text)),
   });
@@ -33,7 +32,10 @@ export function initApp(container) {
     onRemove: (id) => commit(() => store.removeTodo(id)),
   });
 
-  // Acciones generales
+  openAddButton.addEventListener('click', () => {
+    form.open();
+  });
+
   removeButton.addEventListener('click', () => {
     commit(() => store.removeSelected());
   });
@@ -46,17 +48,18 @@ export function initApp(container) {
     commit(() => store.redo());
   });
 
-  // Montaje
-  container.querySelector('[data-form-slot]').append(form);
+  container.querySelector('[data-form-slot]').append(form.element);
   container.querySelector('[data-list-slot]').append(list.element);
 
-  // Actualización de interfaz
   function render(state) {
     list.render(state);
 
     removeButton.disabled = state.selectedIds.size === 0;
     undoButton.disabled = !state.canUndo;
     redoButton.disabled = !state.canRedo;
+    status.textContent =
+    `${state.todos.length} items. ` +
+    `${state.selectedIds.size} selected.`;
   }
 
   store.subscribe(render);

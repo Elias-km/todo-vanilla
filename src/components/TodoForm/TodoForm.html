@@ -1,14 +1,24 @@
 
-<form>
-  <label for="todo-input">Nueva tarea</label>
+<dialog aria-labelledby="todo-dialog-title">
+  <div data-modal>
+    <form>
+      <label id="todo-dialog-title" for="todo-input">
+        Add item to list
+      </label>
 
-  <div data-controls>
-    <input
-      id="todo-input"
-      type="text"
-      placeholder="Escribe una tarea..."
-      required
-    />
-    <button type="submit">Añadir</button>
+      <input
+        id="todo-input"
+        type="text"
+        placeholder="Type the text here..."
+        autocomplete="off"
+        autofocus
+        required
+      />
+
+      <div data-actions>
+        <button type="submit" data-submit>ADD</button>
+        <button type="button" data-cancel>CANCEL</button>
+      </div>
+    </form>
   </div>
-</form>
+</dialog>
