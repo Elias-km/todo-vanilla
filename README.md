@@ -87,6 +87,19 @@ Unit tests cover the store, storage and share formatting. Integration tests cove
 
 The GitHub Actions workflow at `.github/workflows/ci.yml` runs on pushes to `main` and pull requests targeting `main`. It installs dependencies with `npm ci`, runs tests and checks the production build.
 
+### End-to-end testing
+
+Playwright provides optional E2E tests using a real Chromium browser.
+
+```bash
+npx playwright install chromium
+npm run e2e
+```
+
+E2E tests run **manually only**, in headed mode with slowed-down browser interactions for demonstration purposes.
+
+They are intentionally excluded from the Vitest test suite and CI/CD pipeline.
+
 ## Deployment
 
 **GitHub Pages deployment is planned, but not yet configured.** The intended demo URL is:
