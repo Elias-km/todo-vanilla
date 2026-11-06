@@ -11,11 +11,16 @@ const markup = `
     <button type="button" data-remove disabled>DELETE</button>
     <button type="button" data-undo disabled>UNDO</button>
     <button type="button" data-redo disabled>REDO</button>
+    <button type="button" data-share disabled>SHARE</button>
+
     <div data-list-slot></div>
     <div data-form-slot></div>
+
     <p data-status role="status"></p>
+    <p data-share-feedback role="status" hidden></p>
   </main>
 `;
+
 
 // jsdom no implementa completamente el comportamiento de <dialog>.
 // Simulamos únicamente sus métodos nativos.
